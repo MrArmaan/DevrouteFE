@@ -1,0 +1,14 @@
+.userdash-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.userdash-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.userdash-footer {
+  display: flex;
+  justify-content: center;
+}
