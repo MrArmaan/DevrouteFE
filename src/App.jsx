@@ -7,6 +7,24 @@ import Landing from "./components/landing/Landing";
 const App = () => {
   return (
     <Router>
+      <header className="header">
+        <div className="header-left">
+          <div className="logo-container">
+            <img className="logo" src="/images/Designer (4).png" alt="" />
+          </div>
+          <div className="slogan">
+            <p>The Right Route for Junior Developers</p>
+          </div>
+        </div>
+
+        <div className="header-right">
+          <div className="employ-tab">
+            <p>Are you looking to employ?</p>
+            <button>Click Here</button>
+          </div>
+        </div>
+      </header>
+
       <nav className="navbar">
         <div className="navbar-left">
           <ul>
@@ -22,7 +40,13 @@ const App = () => {
           </ul>
         </div>
         <div className="navbar-right">
-          <div className="profile-tab">{/* profile pic */}</div>
+          <div className="profile-tab">
+            <img
+              className="profile-pic"
+              src="/images/profile-circle-icon.png"
+              alt=""
+            />
+          </div>
         </div>
       </nav>
 

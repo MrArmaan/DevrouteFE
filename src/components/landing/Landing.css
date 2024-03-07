@@ -1,0 +1,41 @@
+.main-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.joblist-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 20px;
+  padding: 50px;
+}
+
+.job-one {
+  margin-right: 10px;
+}
+
+.job-one,
+.job-two {
+  border: 1px solid grey;
+  margin-bottom: 10px;
+  width: 150px;
+  height: 180px;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-boxes {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.happy-image {
+  border: 1px solid grey;
+  width: 200px;
+  height: auto;
+}
