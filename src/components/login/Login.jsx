@@ -1,17 +1,11 @@
 import React, { useState } from "react";
-// import { login } from "../../utils/fetch";
+import { login } from "../../utils/fetch";
 
 import "./Login.css";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
-  const [toggle, setToggle] = useState(true);
-
-  const handleToggle = () => {
-    setToggle(!toggle);
-  };
 
   const changeHandler = (e, setter, state) => {
     setter(e.target.value);
@@ -47,9 +41,6 @@ const Login = () => {
         </button>
       </form>
       <div className="forgpass figtree-reg">Forgotten your password?</div>
-      <p className="signup figtree-reg" onClick={handleToggle}>
-        Sign up
-      </p>
     </div>
   );
 };
