@@ -1,7 +1,8 @@
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Login from "./components/login/Login";
 import Signup from "./components/signup/Signup";
+import Landing from "./components/landing/Landing";
 
 const App = () => {
   return (
@@ -10,7 +11,7 @@ const App = () => {
         <div className="navbar-left">
           <ul>
             <li>
-              <Link to="/">Jobs</Link>
+              <Link to="/jobsearch">Jobs</Link>
             </li>
             <li>
               <Link to="/login">Log In</Link>
@@ -25,17 +26,11 @@ const App = () => {
         </div>
       </nav>
 
-      <Switch>
-        <Route path="/Jobsearch">
-          <Jobsearch />
-        </Route>
-        <Route path="/login">
-          <Login />
-        </Route>
-        <Route path="/signup">
-          <Signup />
-        </Route>
-      </Switch>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
     </Router>
   );
 };
