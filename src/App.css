@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  background-color: #fef8ea;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px; /* Add padding for better spacing */
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #a3cfa7;
+}
+
+.navbar a {
+  text-decoration: none;
+}
+
+.navbar-left ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.navbar-left ul li {
+  margin-right: 20px; /* Add margin between navbar items */
+}
+
+.navbar-left ul li:last-child {
+  margin-right: 0; /* Remove margin from last navbar item */
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.profile-pic {
+  width: 30px;
+  height: auto;
+}
+
+.employ-tab {
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+}
+
+.employ-tab p {
+  margin-right: -5px;
+}
+
+.employ-tab button {
+  color: black;
+  background-color: #a3cfa7;
+  padding: 5px 1px;
+}
