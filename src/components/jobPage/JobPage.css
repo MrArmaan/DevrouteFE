@@ -1,0 +1,22 @@
+.jobpage-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.jobwrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.job-title {
+  margin: 0px;
+}
+
+.job-desc {
+  display: flex;
+  flex-direction: row;
+}
+
+.job-action {
+  margin: 0px;
+}
