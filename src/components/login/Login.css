@@ -1,4 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
+
+.figtree-reg {
+  font-family: "Figtree", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
 .login-wrapper {
+  /* background-color: chocolate; */
   background-color: white;
   display: flex;
   box-sizing: border-box;
@@ -18,12 +28,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* margin: 10px; */
   width: 80%;
-  height: 50%;
+  height: 200px;
 }
 
 input {
   background-color: #fafafa;
+  color: rgba(0, 0, 0, 0.467);
   width: 95%;
   height: 30%;
   margin: 5px;
@@ -31,6 +43,67 @@ input {
   border: 1px solid rgba(0, 0, 0, 0.182);
   border-radius: 2px;
 }
+
+input:focus {
+  outline-color: rgba(0, 0, 0, 0.277);
+}
+
+.myPassField {
+  background-color: #fafafa;
+  color: rgba(0, 0, 0, 0.467);
+
+  width: 95%;
+  height: 30%;
+  letter-spacing: 0.125em;
+  font-family: Verdana;
+  font-size: 18px;
+  /* margin: 5px; */
+  padding-left: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.182);
+  border-radius: 2px;
+}
+
+.myPassField:focus:placeholder-shown {
+  outline-color: rgba(0, 0, 0, 0.277);
+}
+
+.myPassField:valid {
+  outline-color: green;
+}
+
+.myPassField:invalid {
+  outline-color: red;
+}
+
+.myPassField::placeholder {
+  color: rgba(0, 0, 0, 0.467);
+  letter-spacing: 0em;
+  font-size: 0.8rem;
+}
+
+.forgpass {
+  color: #2d3342;
+  margin-top: 20px;
+}
+.signup {
+  color: #4cb5f9;
+
+  margin-top: 20px;
+  padding: 20px 0px;
+}
+
+.signup p {
+  color: #4cb5f9;
+}
+
+.signup::before {
+  color: #2d3342;
+
+  font-weight: 300;
+  margin-right: 10px;
+  content: "Don't have an account?";
+}
+
 button {
   background-color: #4cb5f9;
   color: white;
