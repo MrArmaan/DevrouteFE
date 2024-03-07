@@ -1,63 +1,56 @@
 import React, { useState } from "react";
+import { signup } from "../../utils/fetch";
 import "./Signup.css";
 
-const Signup = () => {
+const Signup = ({ setUser, handleToggle }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleUsernameChange = (e) => {
-    setUsername(e.target.value);
+  const changeHandler = (e, setter, state) => {
+    setter(e.target.value);
+    console.log(state);
   };
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    let form = document.getElementById("my-form");
 
-    console.log("Signup form submitted");
+    // console.log("hello from handle submit");
+    const data = await signup(username, email, password);
+    await setUser(data.user);
   };
 
   return (
-    <div className="signup-container">
-      <h1>Sign Up</h1>
-      <form className="signup-form" onSubmit={handleSubmit}>
+    <div className="signup-wrapper">
+      <form className="my-form" onSubmit={handleSubmit}>
         <input
-          placeholder="username"
           type="text"
-          value={username}
-          onChange={handleUsernameChange}
-          required
+          placeholder="username"
+          maxLength="20"
+          onChange={(e) => changeHandler(e, setUsername, username)}
         />
-
         <input
-          placeholder="email"
           type="email"
-          value={email}
-          onChange={handleEmailChange}
-          required
+          placeholder="email"
+          onChange={(e) => changeHandler(e, setEmail, email)}
         />
-
         <input
-          placeholder="password"
+          className="myPassField"
           type="password"
-          value={password}
-          onChange={handlePasswordChange}
-          required
+          minLength={8}
+          maxLength={12}
+          placeholder="password [min 8 max 12]"
+          onChange={(e) => changeHandler(e, setPassword, password)}
         />
-
-        <button type="submit" className="submit-button">
-          Sign Up
+        <button className="figtree-reg" type="submit">
+          Sign up
         </button>
       </form>
+      <p className="login figtree-reg" onClick={handleToggle}>
+        Log in
+      </p>
     </div>
   );
 };
-
 export default Signup;
