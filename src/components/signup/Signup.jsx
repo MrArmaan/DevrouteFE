@@ -16,7 +16,6 @@ const Signup = ({ setUser, handleToggle }) => {
     e.preventDefault();
     let form = document.getElementById("my-form");
 
-    // console.log("hello from handle submit");
     const data = await signup(username, email, password);
     await setUser(data.user);
   };
