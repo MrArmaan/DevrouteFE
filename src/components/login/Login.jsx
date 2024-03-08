@@ -21,26 +21,25 @@ const Login = () => {
   };
   return (
     <div className="login-wrapper">
-      <form className="my-form" onSubmit={handleSubmit}>
-        <strong>DEV.Login</strong>
+      <form className="logsign-form" onSubmit={handleSubmit}>
         <input
+          className="logsign-input"
           type="text"
           placeholder="username"
           onChange={(e) => changeHandler(e, setUsername, username)}
         />
         <input
-          className="myPassField"
+          className="my-pass-field"
           type="password"
           minLength={8}
           maxLength={12}
           placeholder="password"
           onChange={(e) => changeHandler(e, setPassword, password)}
         />
-        <button className="figtree-reg" type="submit">
+        <button className="login-form-button figtree-reg" type="submit">
           Log in
         </button>
       </form>
-      <div className="forgpass figtree-reg">Forgotten your password?</div>
     </div>
   );
 };
