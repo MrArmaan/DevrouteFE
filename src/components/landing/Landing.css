@@ -50,6 +50,7 @@
 }
 
 .footer-container {
+  display: flex;
   flex-direction: row;
 }
 
@@ -74,8 +75,16 @@ footer {
   width: 100px;
   height: 100px;
   text-align: center;
-  border: 1px solid grey;
+  background-color: #8a8b8e;
+  border: 1px solid #163c90;
+  color: white;
   border-radius: 10px;
+}
+
+.footer-right {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
 }
 
 .social-one {
