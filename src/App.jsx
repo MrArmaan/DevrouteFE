@@ -5,67 +5,60 @@ import Signup from "./components/signup/Signup";
 import Landing from "./components/landing/Landing";
 import JobPage from "./components/jobSearch/Jobsearch";
 import Userdash from "./components/userDashboard/Userdash";
+import Menu from "./components/navbar/Navbar";
+
+/*--------------------
+Items
+--------------------*/
+const items = [
+  {
+    name: "Home",
+    color: "#f44336",
+    href: "#",
+  },
+  {
+    name: "Jobs",
+    color: "#e91e63",
+    href: "#",
+  },
+  {
+    name: "Log In",
+    color: "#9c27b0",
+    href: "/components/login/Login",
+  },
+  {
+    name: "Sign Up",
+    color: "#673ab7",
+    href: "#",
+  },
+  {
+    name: "User",
+    color: "#3f51b5",
+    href: "#",
+  },
+];
 
 const App = () => {
   return (
-    <Router>
-      <div className="header-nav">
-        <header>
-          <div className="header-left">
-            <div className="logo-container">
-              <img className="logo" src="/images/drlogo.png" alt="" />
-            </div>
-            <div className="slogan">
-              <p>The Right Route for Junior Developers</p>
-            </div>
+    <div className="header-nav">
+      <header>
+        <div className="header-left">
+          <div className="logo-container">
+            <img className="logo" src="/images/drlogo.png" alt="" />
           </div>
+          <div className="slogan"></div>
+        </div>
 
-          <nav className="navbar">
-            <div className="navbar-left">
-              <ul>
-                <li>
-                  <Link to="/">Home</Link>
-                </li>
-                <li>
-                  <Link to="/jobs">Jobs</Link>
-                </li>
-                <li>
-                  <Link to="/login">Log In</Link>
-                </li>
-                <li>
-                  <Link to="/signup">Sign Up</Link>
-                </li>
-                <li>
-                  <Link to="/userDashboard"> User Dashboard </Link>
-                </li>
-              </ul>
-            </div>
-            <div className="navbar-right">
-              <div className="profile-tab">
-                <img
-                  className="profile-pic"
-                  src="/images/profile-circle-icon.png"
-                  alt=""
-                />
-              </div>
-            </div>
-          </nav>
-          <div className="header-right">
-            <div className="employ-tab">
-              <p>Are you looking to employ?</p>
-              <button>Click Here</button>
-            </div>
-          </div>
-        </header>
-      </div>
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/jobs" element={<JobPage />} />
-        <Route path="/userdashboard" element={<Userdash />} />
-      </Routes>
-    </Router>
+        <Menu items={items} />
+        <div className="profile-tab">
+          <img
+            className="profile-pic"
+            src="/images/profile-circle-icon.png"
+            alt=""
+          />
+        </div>
+      </header>
+    </div>
   );
 };
 

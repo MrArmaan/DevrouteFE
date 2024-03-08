@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #6d6d6d;
+  background-color: #e5e5e5;
 }
 
 header {
@@ -14,19 +14,18 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #6d6d6d;
-  box-shadow: 1px 1px 15px #8a8b8e;
+  background-color: #e5e5e5;
+  box-shadow: 1px 1px 5px #e5e5e5;
 }
 
 .logo {
-  width: 120px;
+  width: 120px !important;
   height: auto;
 }
 
 .navbar {
   display: flex;
   align-items: center;
-  background-color: #6d6d6d;
   padding: 10px 20px;
 }
 
@@ -35,13 +34,11 @@ header {
   padding: 10px;
   margin: 0 20px;
   color: black;
-  background-color: #6d6d6d;
 }
 
 .navbar-left ul {
   list-style: none;
   display: flex;
-  background-color: #6d6d6d;
 }
 
 .navbar-left ul li {
@@ -72,22 +69,43 @@ header {
   cursor: pointer;
   z-index: 1;
 }
-.employ-tab {
+
+.menu {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 70px;
-  background-color: #6d6d6d;
-}
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+  max-width: 800px;
+  margin: 20px auto;
+  border-bottom: 1px solid #eee;
 
-.employ-tab p {
-  white-space: nowrap;
-}
+  @media (max-width: 650px) {
+    flex-direction: column;
+    align-items: center;
+  }
 
-.employ-tab button {
-  color: black;
-  background-color: #a3cfa7;
-  padding: 5px 10px;
-  cursor: pointer;
-  border: 2px solid #7bc682;
+  .item {
+    padding: 18px 28px;
+    cursor: pointer;
+    transition: color 0.3s ease-out;
+    text-decoration: none;
+    color: #111;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin: 5px 0;
+
+    &.active {
+      color: #fff;
+    }
+  }
+
+  .indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 30px;
+  }
 }

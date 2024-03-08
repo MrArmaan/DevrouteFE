@@ -21,8 +21,8 @@ const Landing = () => {
             </Link>
           </h1>
           <p className="landing-subheading">
-            Connecting aspiring junior developers with visionary employers. Find
-            your role today!
+            The Right Route for Junior Developers. Find the Right .Route for
+            You!
           </p>
 
           <div className="search-container">
