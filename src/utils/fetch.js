@@ -49,3 +49,17 @@ export const getAllUsers = async () => {
   console.log("data in fetch users", data);
   return data;
 };
+
+export const fetchRandomPhoto = async () => {
+  try {
+    const response = await fetch("https://api.unsplash.com/photos/", {
+      headers: {
+        Authorization: "Client-ID Nnrsm1NkbZ0-rRr2iCCwSTy9kBjhQKteSm38BtgVYaI",
+      },
+    });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching random photo:", error);
+  }
+};
