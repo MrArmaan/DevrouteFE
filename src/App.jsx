@@ -38,6 +38,7 @@ const App = () => {
         <div className="navbar-right"></div>
       </nav>
 
+      <div></div>
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
