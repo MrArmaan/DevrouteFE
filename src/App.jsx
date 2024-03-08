@@ -7,48 +7,53 @@ import Landing from "./components/landing/Landing";
 const App = () => {
   return (
     <Router>
-      <header className="header">
-        <div className="header-left">
-          <div className="logo-container">
-            <img className="logo" src="/images/Designer (4).png" alt="" />
+      <div className="header-nav">
+        <header className="header">
+          <div className="header-left">
+            <div className="logo-container">
+              <img className="logo" src="/images/drlogo.png" alt="" />
+            </div>
+            <div className="slogan">
+              <p>The Right Route for Junior Developers</p>
+            </div>
           </div>
-          <div className="slogan">
-            <p>The Right Route for Junior Developers</p>
-          </div>
-        </div>
 
-        <div className="header-right">
-          <div className="employ-tab">
-            <p>Are you looking to employ?</p>
-            <button>Click Here</button>
-          </div>
-        </div>
-      </header>
+          <nav className="navbar">
+            <div className="navbar-left">
+              <ul>
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                  <Link to="/jobsearch">Jobs</Link>
+                </li>
+                <li>
+                  <Link to="/login">Log In</Link>
+                </li>
+                <li>
+                  <Link to="/signup">Sign Up</Link>
+                </li>
+              </ul>
+            </div>
+            <div className="navbar-right">
+              <div className="profile-tab">
+                <img
+                  className="profile-pic"
+                  src="/images/profile-circle-icon.png"
+                  alt=""
+                />
+              </div>
+            </div>
+          </nav>
 
-      <nav className="navbar">
-        <div className="navbar-left">
-          <ul>
-            <li>
-              <Link to="/jobsearch">Jobs</Link>
-            </li>
-            <li>
-              <Link to="/login">Log In</Link>
-            </li>
-            <li>
-              <Link to="/signup">Sign Up</Link>
-            </li>
-          </ul>
-        </div>
-        <div className="navbar-right">
-          <div className="profile-tab">
-            <img
-              className="profile-pic"
-              src="/images/profile-circle-icon.png"
-              alt=""
-            />
+          <div className="header-right">
+            <div className="employ-tab">
+              <p>Are you looking to employ?</p>
+              <button>Click Here</button>
+            </div>
           </div>
-        </div>
-      </nav>
+        </header>
+      </div>
 
       <Routes>
         <Route path="/" element={<Landing />} />
