@@ -1,7 +1,7 @@
 import React from "react";
 import "./Userdash.css";
 
-const Login = () => {
+const Userdash = () => {
   return (
     <div className="userdash-wrapper">
       <div className="userimage-wrapper">
@@ -23,4 +23,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Userdash;
