@@ -1,108 +1,66 @@
-.main-body {
+/* Landing.css */
+
+/* Main container */
+.landing-container {
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
+  height: 100vh;
+  background-color: #f9f9f9; /* Slightly lighter than the header */
 }
 
-.joblist-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-left: 50px;
-}
-
-.job-one {
+/* Placeholder images for job listings */
+.job-one,
+.job-two {
   margin-right: 20px;
 }
 
-.job-one,
-.job-two {
-  border: 1px solid grey;
+/* Text content on the right */
+.rightside {
+  flex: 1;
+  padding: 20px;
+}
+
+.landing-heading {
+  font-size: 28px;
+  font-weight: bold;
   margin-bottom: 10px;
-  width: 200px;
-  height: 280px;
+}
+
+.empower-text {
+  font-size: 32px;
+  font-weight: 800; /* Bolder */
+}
+
+.junior-link {
+  color: #007bff; /* Link color */
+  text-decoration: none;
+}
+
+.landing-subheading {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 20px;
 }
 
 .search-container {
   display: flex;
-  flex-direction: row;
   align-items: center;
 }
 
-.search-boxes {
-  padding: 5px;
+.search-box {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
   margin-right: 10px;
-  width: 200px;
-  margin-top: 20px;
 }
 
-.input-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.happy-image {
-  border: 1px solid grey;
-  width: 300px;
-  height: auto;
-  margin-left: 110px;
-  margin-top: 20px;
-}
-
-.footer-container {
-  display: flex;
-  flex-direction: row;
-}
-
-.footer-left {
-  display: flex;
-  flex-direction: row;
-}
-
-footer {
-  font-size: smaller;
-  width: 100vw;
-  margin-top: 20px;
-  border-top: 1px solid grey;
-  flex-direction: column;
-}
-
-.footer-one,
-.footer-two,
-.footer-three {
-  margin: 5px;
-  padding: 2px;
-  width: 100px;
-  height: 100px;
-  text-align: center;
-  background-color: #8a8b8e;
-  border: 1px solid #163c90;
-  color: white;
-  border-radius: 10px;
-}
-
-.footer-right {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-}
-
-.social-one {
-  width: 2px;
-  height: 2px;
-}
-
-.social-two {
-  width: 2px;
-  height: 2px;
-}
-
-.social-three {
-  width: 2px;
-  height: 2px;
-}
-
-.footer-right {
-  display: flex;
-  flex-direction: row;
+.search-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
 }
