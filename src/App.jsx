@@ -35,9 +35,7 @@ const App = () => {
                 <li>
                   <Link to="/signup">Sign Up</Link>
                 </li>
-                <li>
-                  <Link to="/userDashboard"> User Dashboard </Link>
-                </li>
+                <li></li>
               </ul>
             </div>
             <div className="navbar-right">
