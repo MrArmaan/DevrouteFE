@@ -1,4 +1,3 @@
-import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Login from "./components/login/Login";
@@ -11,7 +10,7 @@ const App = () => {
   return (
     <Router>
       <div className="header-nav">
-        <header className="header">
+        <header>
           <div className="header-left">
             <div className="logo-container">
               <img className="logo" src="/images/drlogo.png" alt="" />
@@ -28,13 +27,16 @@ const App = () => {
                   <Link to="/">Home</Link>
                 </li>
                 <li>
-                  <Link to="/jobsearch">Jobs</Link>
+                  <Link to="/jobs">Jobs</Link>
                 </li>
                 <li>
                   <Link to="/login">Log In</Link>
                 </li>
                 <li>
                   <Link to="/signup">Sign Up</Link>
+                </li>
+                <li>
+                  <Link to="/userDashboard"> User Dashboard </Link>
                 </li>
               </ul>
             </div>
@@ -56,16 +58,6 @@ const App = () => {
           </div>
         </header>
       </div>
-      <nav className="navbar">
-        <div className="navbar-left">
-          <Link to="/">Home</Link>
-          <Link to="/jobs">Jobs</Link>
-          <Link to="/login">Log In</Link>
-          <Link to="/signup">Sign Up</Link>
-          <Link to="/userdashboard"> User Dashboard</Link>
-        </div>
-        <div className="navbar-right"></div>
-      </nav>
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />

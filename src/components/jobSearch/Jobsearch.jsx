@@ -1,4 +1,3 @@
-import React from "react";
 import "./Jobsearch.css";
 
 const JobPage = () => {
@@ -14,6 +13,31 @@ const JobPage = () => {
           <p>Location: New York, NY</p>
           <button>Apply Now</button>
         </div>
+        <div className="job-card">
+          <h3>Junior Frontend Developer</h3>
+          <p>Company: Acme Web Solutions</p>
+          <p>Location: New York, NY</p>
+          <button>Apply Now</button>
+        </div>
+        <div className="job-card">
+          <h3>Junior Frontend Developer</h3>
+          <p>Company: Acme Web Solutions</p>
+          <p>Location: New York, NY</p>
+          <button>Apply Now</button>
+        </div>
+        <div className="job-card">
+          <h3>Junior Frontend Developer</h3>
+          <p>Company: Acme Web Solutions</p>
+          <p>Location: New York, NY</p>
+          <button>Apply Now</button>
+        </div>
+        <div className="job-card">
+          <h3>Junior Frontend Developer</h3>
+          <p>Company: Acme Web Solutions</p>
+          <p>Location: New York, NY</p>
+          <button>Apply Now</button>
+        </div>
+
         {/* Repeat for other job listings */}
       </section>
 
