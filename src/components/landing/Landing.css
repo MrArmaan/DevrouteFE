@@ -1,21 +1,16 @@
-/* Landing.css */
-
-/* Main container */
 .landing-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f9f9f9; /* Slightly lighter than the header */
+  background-color: #f9f9f9;
 }
 
-/* Placeholder images for job listings */
 .job-one,
 .job-two {
   margin-right: 20px;
 }
 
-/* Text content on the right */
 .rightside {
   flex: 1;
   padding: 20px;
@@ -29,11 +24,11 @@
 
 .empower-text {
   font-size: 32px;
-  font-weight: 800; /* Bolder */
+  font-weight: 800;
 }
 
 .junior-link {
-  color: #007bff; /* Link color */
+  color: #007bff;
   text-decoration: none;
 }
 
@@ -63,4 +58,9 @@
   border-radius: 5px;
   padding: 10px 20px;
   cursor: pointer;
+}
+
+.landing-logo {
+  width: 100px;
+  height: auto;
 }

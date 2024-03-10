@@ -7,7 +7,7 @@ const Landing = () => {
       <div className="main-body">
         <div className="logo-container">
           <img
-            src="DevRoute/public/images/drlogo.png"
+            src="/images/drlogo.png"
             alt="Your Logo"
             className="landing-logo"
           />

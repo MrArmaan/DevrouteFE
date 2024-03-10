@@ -1,10 +1,7 @@
 import React, { useRef, useState, useEffect, createRef } from "react";
 import gsap from "gsap";
 
-/*--------------------
-Menu
---------------------*/
-const Menu = ({ items }) => {
+const Navmenu = ({ items }) => {
   const $root = useRef();
   const $indicator1 = useRef();
   const $indicator2 = useRef();
@@ -66,4 +63,4 @@ const Menu = ({ items }) => {
   );
 };
 
-export default Menu;
+export default Navmenu;
