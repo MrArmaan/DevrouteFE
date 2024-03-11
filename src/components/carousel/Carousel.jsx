@@ -56,7 +56,7 @@ const Carousel = () => {
       animateIn($item, $block);
     }
 
-    window.addEventListener("mousemove", onMouseMove, false);
+    carousel.addEventListener("mousemove", onMouseMove, false);
     ticker = setInterval(looper, 1000 / 60);
 
     return () => {

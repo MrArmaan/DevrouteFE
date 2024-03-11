@@ -6,22 +6,6 @@
   background-color: #f9f9f9;
 }
 
-.job-one,
-.job-two {
-  margin-right: 20px;
-}
-
-.rightside {
-  flex: 1;
-  padding: 20px;
-}
-
-.landing-heading {
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
 .empower-text {
   font-size: 32px;
   font-weight: 800;
