@@ -1,6 +1,8 @@
 import "./Jobsearch.css";
+import { useState } from "react";
 
 const Jobs = ({ items }) => {
+  const [active, setActive] = useState(0);
   return (
     <div className="menu-container">
       {items.map((item, index) => (
@@ -15,10 +17,12 @@ const Jobs = ({ items }) => {
           {item.name}
         </a>
       ))}
-      <div ref={$indicator1} className="indicator" />
-      <div ref={$indicator2} className="indicator" />
+      <div className="indicator" />
+      <div className="indicator" />
     </div>
   );
 };
 
 export default Jobs;
+
+// ref = { $indicator2 };

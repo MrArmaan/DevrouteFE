@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Navmenu from "./components/navbar/Navbar";
@@ -37,6 +37,7 @@ const items = [
 ];
 
 const App = () => {
+  const [jobs, setJobs] = useState([]);
   return (
     <Router>
       <div className="header-nav">
@@ -57,7 +58,7 @@ const App = () => {
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/jobs" element={<Jobs />} />
+        <Route path="/jobs" element={<Jobs items={jobs} />} />
         <Route path="/userdashboard" element={<Userdash />} />
       </Routes>
     </Router>
