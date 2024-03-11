@@ -19,27 +19,41 @@ const Login = () => {
     const data = await login(username, password);
     await setUser(data.user);
   };
+
   return (
-    <div className="login-wrapper">
-      <form className="logsign-form" onSubmit={handleSubmit}>
-        <input
-          className="logsign-input"
-          type="text"
-          placeholder="username"
-          onChange={(e) => changeHandler(e, setUsername, username)}
-        />
-        <input
-          className="my-pass-field"
-          type="password"
-          minLength={8}
-          maxLength={12}
-          placeholder="password"
-          onChange={(e) => changeHandler(e, setPassword, password)}
-        />
-        <button className="login-form-button figtree-reg" type="submit">
-          Log in
+    <div className="wrapper">
+      <div className="logo">
+        <img src="/images/drlogo.png" alt="DevRoute Logo" />
+      </div>
+      <div className="text-center mt-4 name">Route.Dev</div>
+      <form className="p-3 mt-3" onSubmit={handleSubmit}>
+        <div className="form-field d-flex align-items-center">
+          <span className="far fa-user"></span>
+          <input
+            type="text"
+            name="userName"
+            id="userName"
+            placeholder="Username"
+            onChange={(e) => changeHandler(e, setUsername)}
+          />
+        </div>
+        <div className="form-field d-flex align-items-center">
+          <span className="fas fa-key"></span>
+          <input
+            type="password"
+            name="password"
+            id="pwd"
+            placeholder="Password"
+            onChange={(e) => changeHandler(e, setPassword)}
+          />
+        </div>
+        <button className="btn mt-3" type="submit">
+          Login
         </button>
       </form>
+      <div className="text-center fs-6">
+        <a href="#">Forget password?</a> or <a href="#">Sign up</a>
+      </div>
     </div>
   );
 };
