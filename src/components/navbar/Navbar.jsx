@@ -1,7 +1,9 @@
 import React, { useRef, useState, useEffect, createRef } from "react";
 import gsap from "gsap";
+import { useNavigate } from "react-router-dom";
 
 const Navmenu = ({ items }) => {
+  const navigate = useNavigate();
   const $root = useRef();
   const $indicator1 = useRef();
   const $indicator2 = useRef();
@@ -52,7 +54,7 @@ const Navmenu = ({ items }) => {
           onMouseEnter={() => {
             setActive(index);
           }}
-          href={item.href}
+          onClick={() => navigate(item.path)}
         >
           {item.name}
         </a>

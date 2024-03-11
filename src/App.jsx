@@ -12,27 +12,27 @@ const items = [
   {
     name: "Home",
     color: "#f44336",
-    to: "/",
+    path: "/",
   },
   {
     name: "Jobs",
     color: "#e91e63",
-    to: "/jobs",
+    path: "/jobs",
   },
   {
     name: "Log In",
     color: "#9c27b0",
-    to: "/login",
+    path: "/login",
   },
   {
     name: "Sign Up",
     color: "#673ab7",
-    to: "/signup",
+    path: "/signup",
   },
   {
     name: "User",
     color: "#3f51b5",
-    to: "/userdashboard",
+    path: "/userdashboard",
   },
 ];
 
