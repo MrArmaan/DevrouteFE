@@ -35,20 +35,20 @@ export const login = async (username, password) => {
   return data;
 };
 
-export const getAllUsers = async () => {
-  const response = await fetch("http://localhost:5001/users/getAllUsers", {
-    method: "GET",
-    mode: "cors",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+// export const getAllUsers = async () => {
+//   const response = await fetch("http://localhost:5001/users/getAllUsers", {
+//     method: "GET",
+//     mode: "cors",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//   });
 
-  const data = await response.json();
+//   const data = await response.json();
 
-  console.log("data in fetch users", data);
-  return data;
-};
+//   console.log("data in fetch users", data);
+//   return data;
+// };
 
 export const fetchRandomPhoto = async () => {
   try {
@@ -62,4 +62,50 @@ export const fetchRandomPhoto = async () => {
   } catch (error) {
     console.error("Error fetching random photo:", error);
   }
+};
+
+export const getUserDetails = async (userId) => {
+  const response = await fetch(`http://localhost:5001/users/${userId}`, {
+    method: "GET",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  const data = await response.json();
+
+  console.log("data in fetch user details", data);
+  return data;
+};
+
+export const updateUserDetails = async (userId, userData) => {
+  const response = await fetch(`http://localhost:5001/users/${userId}`, {
+    method: "PUT",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(userData),
+  });
+
+  const data = await response.json();
+
+  console.log("data in update user details", data);
+  return data;
+};
+
+export const getAllUsers = async () => {
+  const response = await fetch("http://localhost:5001/users/getAllUsers", {
+    method: "GET",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  const data = await response.json();
+
+  console.log("data in fetch users", data);
+  return data;
 };
