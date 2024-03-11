@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { signup } from "../../utils/fetch";
+import { Link } from "react-router-dom";
 import "./Signup.css";
 
 const Signup = ({ setUser }) => {
@@ -7,48 +8,57 @@ const Signup = ({ setUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const changeHandler = (e, setter, state) => {
+  const changeHandler = (e, setter) => {
     setter(e.target.value);
-    console.log(state);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let form = document.getElementById("my-form");
-
     const data = await signup(username, email, password);
     await setUser(data.user);
   };
 
   return (
-    <div className="signup-wrapper">
-      <form className="logsign-form" onSubmit={handleSubmit}>
-        <input
-          className="logsign-input"
-          type="text"
-          placeholder="username"
-          maxLength="20"
-          onChange={(e) => changeHandler(e, setUsername, username)}
-        />
-        <input
-          className="logsign-input"
-          type="email"
-          placeholder="email"
-          onChange={(e) => changeHandler(e, setEmail, email)}
-        />
-        <input
-          className="my-pass-field"
-          type="password"
-          minLength={8}
-          maxLength={12}
-          placeholder="password [min 8 max 12]"
-          onChange={(e) => changeHandler(e, setPassword, password)}
-        />
-        <button className="signup-form-button figtree-reg" type="submit">
+    <div className="wrapper">
+      <div className="logo">
+        <img src="/images/drlogo.png" alt="DevRoute Logo" />
+      </div>
+      <div className="text-center mt-4 name">Route.Dev</div>
+      <form className="p-3 mt-3" onSubmit={handleSubmit}>
+        <div className="form-field d-flex align-items-center">
+          <span className="far fa-user"></span>
+          <input
+            type="text"
+            placeholder="Username"
+            onChange={(e) => changeHandler(e, setUsername)}
+          />
+        </div>
+        <div className="form-field d-flex align-items-center">
+          <span className="far fa-envelope"></span>
+          <input
+            type="email"
+            placeholder="Email"
+            onChange={(e) => changeHandler(e, setEmail)}
+          />
+        </div>
+        <div className="form-field d-flex align-items-center">
+          <span className="fas fa-key"></span>
+          <input
+            type="password"
+            placeholder="Password"
+            onChange={(e) => changeHandler(e, setPassword)}
+          />
+        </div>
+        <button className="btn mt-3" type="submit">
           Sign up
         </button>
       </form>
+      <div className="text-center fs-6">
+        <Link to="/forgot-password">Forget password?</Link> or{" "}
+        <Link to="/signup">Sign up</Link>
+      </div>
     </div>
   );
 };
+
 export default Signup;
