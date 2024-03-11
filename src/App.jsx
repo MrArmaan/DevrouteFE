@@ -6,7 +6,7 @@ import Login from "./components/login/Login";
 import Signup from "./components/signup/Signup";
 import Landing from "./components/landing/Landing";
 import Jobs from "./components/jobSearch/Jobsearch";
-import Userdash from "./components/userDashboard/Userdash";
+// import Userdash from "./components/userDashboard/Userdash";
 
 const items = [
   {
@@ -66,7 +66,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/jobs" element={<Jobs items={jobs} />} />
-        <Route path="/userdashboard" element={<Userdash />} />
+        {/* <Route path="/userdashboard" element={<Userdash />} /> */}
       </Routes>
     </Router>
   );
