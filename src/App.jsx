@@ -49,7 +49,14 @@ const App = () => {
             <div className="slogan"></div>
           </div>
 
+          <Navmenu items={items} />
 
+          <div className="profile-tab">
+            <img
+              className="profile-pic"
+              src="/images/profile-circle-icon.png"
+              alt=""
+            />
           </div>
         </header>
       </div>

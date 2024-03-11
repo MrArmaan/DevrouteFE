@@ -1,20 +1,16 @@
 import { Link } from "react-router-dom";
 import "./Landing.css";
+import Carousel from "../carousel/Carousel";
 
 const Landing = () => {
   return (
     <div className="landing-container">
       <div className="main-body">
-        <div className="logo-container">
-          <img
-            src="/images/drlogo.png"
-            alt="Your Logo"
-            className="landing-logo"
-          />
-        </div>
-
         <div className="rightside">
           <h1 className="landing-heading">
+            <div>
+              <Carousel />
+            </div>
             <span className="empower-text">Empower Your Tech Journey</span> with{" "}
             <Link to="/route.dev" className="junior-link">
               Dev.Route
