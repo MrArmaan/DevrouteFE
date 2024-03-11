@@ -4,13 +4,13 @@ import Carousel from "../carousel/Carousel";
 
 const Landing = () => {
   return (
-    <div className="landing-container">
-      <div className="main-body">
-        <div className="rightside">
+    <div>
+      <div>
+        <Carousel />
+      </div>
+      <div className="landing-container">
+        <div className="main-body">
           <h1 className="landing-heading">
-            <div>
-              <Carousel />
-            </div>
             <span className="empower-text">Empower Your Tech Journey</span> with{" "}
             <Link to="/route.dev" className="junior-link">
               Dev.Route
@@ -30,7 +30,7 @@ const Landing = () => {
             <button className="search-button">Search</button>
           </div>
         </div>
-      </div>
+      </div>{" "}
     </div>
   );
 };
