@@ -1,4 +1,4 @@
-#fps {
+.fps {
   margin-top: 5px;
   margin-left: 35px;
 }
@@ -23,7 +23,7 @@ a:hover {
   transform: translate3d(0, 0, 0);
 }
 
-#contentContainer {
+.contentContainer {
   position: absolute;
   margin-left: -500px;
   margin-top: -500px;
@@ -33,7 +33,7 @@ a:hover {
   height: 1000px;
 }
 
-#carouselContainer {
+.carouselContainer {
   position: absolute;
   margin-left: -500px;
   margin-top: -500px;
