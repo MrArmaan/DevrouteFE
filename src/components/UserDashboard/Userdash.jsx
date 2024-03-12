@@ -19,8 +19,8 @@ const Userdash = ({ userId }) => {
     addressLine3: "",
     postcode: "",
     country: "",
-    codingExperience: 0,
-    designExperience: 0,
+    codingExperience: "",
+    designExperience: "",
     additionalDetails: "",
   });
 

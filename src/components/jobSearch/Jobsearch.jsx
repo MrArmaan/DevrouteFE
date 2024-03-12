@@ -1,26 +1,9 @@
 import { useState } from "react";
-import "./Jobsearch.css"; // Import the CSS file
-
-const JobDetailsPopup = ({ job, onClose, onApply, isLoggedIn, applied }) => {
-  return (
-    <div className="job-details-popup">
-      <div className="job-details-popup-content">
-        <span className="close" onClick={onClose}>
-          &times;
-        </span>
-        <h3>{job.title}</h3>
-        <p>Company: {job.company}</p>
-        <p>Location: {job.location}</p>
-        {isLoggedIn && <button onClick={onApply}>Apply Now</button>}
-        {applied && <p>User has successfully applied for this job.</p>}
-      </div>
-    </div>
-  );
-};
+import "./Jobsearch.css";
 
 const JobPage = () => {
   const [selectedJob, setSelectedJob] = useState(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [applied, setApplied] = useState(false);
 
   const jobs = [
@@ -29,6 +12,7 @@ const JobPage = () => {
       title: "Junior Frontend Developer",
       company: "Acme Web Solutions",
       location: "New York, NY",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     },
   ];
 
@@ -37,27 +21,34 @@ const JobPage = () => {
   };
 
   const handleApply = () => {
-    fetch("api/applyForJob", {
+    if (!isLoggedIn) {
+      alert("User is not logged in. Please log in to apply.");
+      return;
+    }
+    applyForJob(selectedJob.id)
+      .then(() => {
+        setApplied(true);
+        alert("Successfully applied for the job.");
+      })
+      .catch((error) => {
+        console.error("Failed to apply for the job:", error);
+        alert("Failed to apply for the job: " + error.message);
+      });
+  };
+
+  const applyForJob = (jobId) => {
+    return fetch("http://localhost:5001/api/applyForJob", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ jobId: selectedJob.id }),
-    })
-      .then((response) => {
-        if (response.ok) {
-          setApplied(true);
-        } else {
-          console.error("Failed to apply for the job.");
-        }
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+      body: JSON.stringify({ jobId }),
+    });
   };
 
   const handleClose = () => {
     setSelectedJob(null);
+    setApplied(false);
   };
 
   return (
@@ -72,8 +63,6 @@ const JobPage = () => {
             <h3>{job.title}</h3>
             <p>Company: {job.company}</p>
             <p>Location: {job.location}</p>
-            {isLoggedIn && <button onClick={handleApply}>Apply Now</button>}
-            {applied && <p>User has successfully applied for this job.</p>}
           </div>
         ))}
       </section>
@@ -90,13 +79,21 @@ const JobPage = () => {
       />
 
       {selectedJob && (
-        <JobDetailsPopup
-          job={selectedJob}
-          onClose={handleClose}
-          onApply={handleApply}
-          isLoggedIn={isLoggedIn}
-          applied={applied}
-        />
+        <div className="job-details-popup">
+          <div className="job-details-popup-content">
+            <span className="close" onClick={handleClose}>
+              &times;
+            </span>
+            <h3>{selectedJob.title}</h3>
+            <p>Company: {selectedJob.company}</p>
+            <p>Location: {selectedJob.location}</p>
+            <p>Description: {selectedJob.description}</p>
+            {isLoggedIn && !applied && (
+              <button onClick={handleApply}>Apply Now</button>
+            )}
+            {applied && <p>User has successfully applied for this job.</p>}
+          </div>
+        </div>
       )}
     </div>
   );

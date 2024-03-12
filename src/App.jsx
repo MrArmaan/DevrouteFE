@@ -37,7 +37,8 @@ const items = [
 ];
 
 const App = () => {
-  const [jobs, setJobs] = useState([]);
+  const [user, setUser] = useState(null);
+
   return (
     <Router>
       <div className="header-nav">
@@ -63,9 +64,9 @@ const App = () => {
 
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/jobs" element={<Jobs items={jobs} />} />
+        <Route path="/login" element={<Login setUser={setUser} />} />
+        <Route path="/signup" element={<Signup setUser={setUser} />} />
+        <Route path="/jobs" element={<Jobs items={[]} />} />
         <Route path="/userdashboard" element={<Userdash />} />
       </Routes>
     </Router>

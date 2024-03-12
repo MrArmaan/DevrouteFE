@@ -2,18 +2,20 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
-const Login = () => {
+const Login = ({ setUser }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loginSuccess, setLoginSuccess] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const userData = {
-      username: "exampleUser",
-      email: "user@example.com",
+      username: username,
+      email: `${username}@example.com`,
     };
-    navigate("/Userdashboard", { state: { userData } });
+    setUser(userData);
+    setLoginSuccess(true);
   };
 
   return (
@@ -50,6 +52,14 @@ const Login = () => {
       <div className="text-center fs-6">
         <a href="#">Forget password?</a> or <a href="#">Sign up</a>
       </div>
+      {loginSuccess && (
+        <div className="success-popup">
+          Successfully logged in as {username}. Please go to your dashboard.
+          <button onClick={() => navigate("/userdashboard")}>
+            Go to Dashboard
+          </button>
+        </div>
+      )}
     </div>
   );
 };
