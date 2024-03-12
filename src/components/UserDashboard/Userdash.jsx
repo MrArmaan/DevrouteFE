@@ -63,7 +63,7 @@ const Userdash = ({ userId }) => {
   const handleUpdate = async () => {
     await updateUserDetails(userId, userDetails);
     setEditMode(false);
-    navigate("/user-dashboard");
+    navigate("/Userdashboard");
   };
 
   return (
