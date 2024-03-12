@@ -73,7 +73,8 @@ export const fetchRandomPhoto = async () => {
 };
 
 export const getUserDetails = async (userId) => {
-  const response = await fetch(`http://localhost:5001/users/${userId}`, {
+  const response = await (`http://localhost:5001/users/${userId}`,
+  {
     method: "GET",
     mode: "cors",
     headers: {

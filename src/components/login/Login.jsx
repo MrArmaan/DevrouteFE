@@ -10,12 +10,23 @@ const Login = ({ setUser }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const userData = {
-      username: username,
-      email: `${username}@example.com`,
-    };
-    setUser(userData);
-    setLoginSuccess(true);
+    console.log("Submitting login form...");
+    try {
+      const response = await fetch("http://localhost:5001/users/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, password }),
+      });
+      console.log("Response status:", response.status);
+      const userData = await response.json();
+      console.log("User data:", userData);
+      setUser(userData.user);
+      setLoginSuccess(true);
+    } catch (error) {
+      console.error("Login failed:", error);
+    }
   };
 
   return (
