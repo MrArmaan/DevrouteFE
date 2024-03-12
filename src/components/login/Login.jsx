@@ -12,10 +12,31 @@ const Login = ({ setUser }) => {
     e.preventDefault();
     const userData = {
       username: username,
-      email: `${username}@example.com`,
+      password: password,
     };
-    setUser(userData);
-    setLoginSuccess(true);
+
+    try {
+      const response = await fetch("http://localhost:5001/users/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      });
+
+      if (response.ok) {
+        const user = await response.json();
+        setUser(user);
+        setLoginSuccess(true);
+        navigate("/userdashboard");
+      } else {
+        console.error("Login failed");
+        setLoginSuccess(false);
+      }
+    } catch (error) {
+      console.error("Error logging in:", error);
+      setLoginSuccess(false);
+    }
   };
 
   return (
@@ -32,6 +53,7 @@ const Login = ({ setUser }) => {
             name="userName"
             id="userName"
             placeholder="Username"
+            value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
@@ -42,6 +64,7 @@ const Login = ({ setUser }) => {
             name="password"
             id="pwd"
             placeholder="Password"
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
@@ -55,9 +78,6 @@ const Login = ({ setUser }) => {
       {loginSuccess && (
         <div className="success-popup">
           Successfully logged in as {username}. Please go to your dashboard.
-          <button onClick={() => navigate("/userdashboard")}>
-            Go to Dashboard
-          </button>
         </div>
       )}
     </div>

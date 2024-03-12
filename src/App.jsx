@@ -7,6 +7,7 @@ import Signup from "./components/signup/Signup";
 import Landing from "./components/landing/Landing";
 import Jobs from "./components/jobSearch/Jobsearch";
 import Userdash from "./components/UserDashboard/Userdash";
+// import Footer from "./footer/Footer";
 
 const items = [
   {
@@ -41,34 +42,38 @@ const App = () => {
 
   return (
     <Router>
-      <div className="header-nav">
-        <header>
-          <div className="header-left">
-            <div className="logo-container">
-              <img className="logo" src="/images/drlogo.png" alt="" />
+      <div className="app-container">
+        <div className="header-nav">
+          <header>
+            <div className="header-left">
+              <div className="logo-container">
+                <img className="logo" src="/images/drlogo.png" alt="" />
+              </div>
+              <div className="slogan"></div>
             </div>
-            <div className="slogan"></div>
-          </div>
 
-          <Navmenu items={items} />
+            <Navmenu items={items} />
 
-          <div className="profile-tab">
-            <img
-              className="profile-pic"
-              src="/images/profile-circle-icon.png"
-              alt=""
-            />
-          </div>
-        </header>
+            <div className="profile-tab">
+              <img
+                className="profile-pic"
+                src="/images/profile-circle-icon.png"
+                alt=""
+              />
+            </div>
+          </header>
+        </div>
+
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/login" element={<Login setUser={setUser} />} />
+          <Route path="/signup" element={<Signup setUser={setUser} />} />
+          <Route path="/jobs" element={<Jobs items={[]} />} />
+          <Route path="/userdashboard" element={<Userdash />} />
+        </Routes>
+        {/* 
+        <Footer /> */}
       </div>
-
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/login" element={<Login setUser={setUser} />} />
-        <Route path="/signup" element={<Signup setUser={setUser} />} />
-        <Route path="/jobs" element={<Jobs items={[]} />} />
-        <Route path="/userdashboard" element={<Userdash />} />
-      </Routes>
     </Router>
   );
 };
