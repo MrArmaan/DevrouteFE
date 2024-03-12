@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { signup } from "../../utils/fetch";
 import { Link } from "react-router-dom";
 import "./Signup.css";
@@ -55,7 +55,7 @@ const Signup = ({ setUser }) => {
       </form>
       <div className="text-center fs-6">
         <Link to="/forgot-password">Forget password?</Link> or{" "}
-        <Link to="/signup">Sign up</Link>
+        <Link to="/Login">Login</Link>
       </div>
     </div>
   );

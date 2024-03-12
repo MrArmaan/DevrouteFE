@@ -1,12 +1,17 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { getUserDetails, updateUserDetails } from "../../utils/fetch";
 import "./Userdash.css";
 
 const Userdash = ({ userId }) => {
-  const [userData, setUserData] = useState({
+  const navigate = useNavigate();
+  const location = useLocation();
+  const userData = location.state ? location.state.userData : {};
+
+  const [userDetails, setUserDetails] = useState({
     name: "",
     photo: "",
+    email: "",
     skills: [],
     phoneNumber: "",
     addressLine1: "",
@@ -20,20 +25,23 @@ const Userdash = ({ userId }) => {
   });
 
   const [editMode, setEditMode] = useState(false);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getUserDetails(userId);
-      setUserData(data);
+      try {
+        const data = await getUserDetails(userId);
+        setUserDetails(data);
+      } catch (error) {
+        console.error("Error fetching user details:", error);
+      }
     };
 
     fetchData();
   }, [userId]);
 
   const handleInputChange = (e) => {
-    setUserData({
-      ...userData,
+    setUserDetails({
+      ...userDetails,
       [e.target.name]: e.target.value,
     });
   };
@@ -42,8 +50,8 @@ const Userdash = ({ userId }) => {
     const file = e.target.files[0];
     const reader = new FileReader();
     reader.onloadend = () => {
-      setUserData({
-        ...userData,
+      setUserDetails({
+        ...userDetails,
         photo: reader.result,
       });
     };
@@ -53,7 +61,7 @@ const Userdash = ({ userId }) => {
   };
 
   const handleUpdate = async () => {
-    await updateUserDetails(userId, userData);
+    await updateUserDetails(userId, userDetails);
     setEditMode(false);
     navigate("/user-dashboard");
   };
@@ -69,15 +77,16 @@ const Userdash = ({ userId }) => {
               onChange={handleFileChange}
               disabled={!editMode}
             />
-            <img src={userData.photo} alt="User" className="user-photo" />
-            <h2 className="user-name">{userData.name}</h2>
+            <img src={userDetails.photo} alt="User" className="user-photo" />
+            <h2 className="user-name">{userDetails.name}</h2>
+            <p className="user-email">{userDetails.email}</p>
             {editMode && (
               <div className="user-skills">
                 <h3>Skills:</h3>
                 <input
                   type="text"
                   name="skills"
-                  value={userData.skills.join(", ")}
+                  value={userDetails.skills.join(", ")}
                   onChange={handleInputChange}
                 />
               </div>
@@ -91,62 +100,62 @@ const Userdash = ({ userId }) => {
               <input
                 type="text"
                 name="phoneNumber"
-                value={userData.phoneNumber}
+                value={userDetails.phoneNumber}
                 onChange={handleInputChange}
               />
             ) : (
-              <p>{userData.phoneNumber}</p>
+              <p>{userDetails.phoneNumber}</p>
             )}
             <h3>Address:</h3>
             <input
               type="text"
               name="addressLine1"
-              value={userData.addressLine1}
+              value={userDetails.addressLine1}
               onChange={handleInputChange}
               disabled={!editMode}
             />
             <input
               type="text"
               name="addressLine2"
-              value={userData.addressLine2}
+              value={userDetails.addressLine2}
               onChange={handleInputChange}
               disabled={!editMode}
             />
             <input
               type="text"
               name="addressLine3"
-              value={userData.addressLine3}
+              value={userDetails.addressLine3}
               onChange={handleInputChange}
               disabled={!editMode}
             />
             <input
               type="text"
               name="postcode"
-              value={userData.postcode}
+              value={userDetails.postcode}
               onChange={handleInputChange}
               disabled={!editMode}
             />
             <input
               type="text"
               name="country"
-              value={userData.country}
+              value={userDetails.country}
               onChange={handleInputChange}
               disabled={!editMode}
             />
           </div>
           <div className="experience-details">
             <h3>Experience:</h3>
-            <p>Coding: {userData.codingExperience} years</p>
-            <p>Design: {userData.designExperience} years</p>
+            <p>Coding: {userDetails.codingExperience} years</p>
+            <p>Design: {userDetails.designExperience} years</p>
             <h3>Additional Details:</h3>
             {editMode ? (
               <textarea
                 name="additionalDetails"
-                value={userData.additionalDetails}
+                value={userDetails.additionalDetails}
                 onChange={handleInputChange}
               />
             ) : (
-              <p>{userData.additionalDetails}</p>
+              <p>{userDetails.additionalDetails}</p>
             )}
           </div>
         </div>
