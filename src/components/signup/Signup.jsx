@@ -7,6 +7,7 @@ const Signup = ({ setUser }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [signupSuccess, setSignupSuccess] = useState(false);
 
   const changeHandler = (e, setter) => {
     setter(e.target.value);
@@ -16,6 +17,7 @@ const Signup = ({ setUser }) => {
     e.preventDefault();
     const data = await signup(username, email, password);
     await setUser(data.user);
+    setSignupSuccess(true);
   };
 
   return (
@@ -57,6 +59,12 @@ const Signup = ({ setUser }) => {
         <Link to="/forgot-password">Forget password?</Link> or{" "}
         <Link to="/Login">Login</Link>
       </div>
+      {signupSuccess && (
+        <div className="success-popup">
+          Successfully signed up {username}. Please log in.
+          <Link to="/Login">Login</Link>
+        </div>
+      )}
     </div>
   );
 };
