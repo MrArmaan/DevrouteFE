@@ -109,3 +109,23 @@ export const getAllUsers = async () => {
   console.log("data in fetch users", data);
   return data;
 };
+
+const handleApply = () => {
+  fetch("api/applyForJob", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ jobId: selectedJob.id }),
+  })
+    .then((response) => {
+      if (response.ok) {
+        setApplied(true);
+      } else {
+        console.error("Failed to apply for the job.");
+      }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+};

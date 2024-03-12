@@ -1,20 +1,19 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
-  const changeHandler = (e, setter) => {
-    setter(e.target.value);
-  };
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(`Hello ${username} from handleSubmit`);
-    const data = await login(username, password);
-    await setUser(data.user);
+    const userData = {
+      username: "exampleUser",
+      email: "user@example.com",
+    };
+    navigate("/Userdashboard", { state: { userData } });
   };
 
   return (
@@ -31,7 +30,7 @@ const Login = () => {
             name="userName"
             id="userName"
             placeholder="Username"
-            onChange={(e) => changeHandler(e, setUsername)}
+            onChange={(e) => setUsername(e.target.value)}
           />
         </div>
         <div className="form-field d-flex align-items-center">
@@ -41,7 +40,7 @@ const Login = () => {
             name="password"
             id="pwd"
             placeholder="Password"
-            onChange={(e) => changeHandler(e, setPassword)}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         <button className="btn mt-3" type="submit">
@@ -56,73 +55,3 @@ const Login = () => {
 };
 
 export default Login;
-
-// import React, { useState } from "react";
-// import { withRouter } from "react-router-dom";
-// import { login } from "../../utils/fetch";
-
-// import "./Login.css";
-
-// const Login = ({ history }) => {
-//   const [username, setUsername] = useState("");
-//   const [password, setPassword] = useState("");
-
-//   const changeHandler = (e, setter) => {
-//     setter(e.target.value);
-//   };
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-
-//     console.log(`hello ${username} from handle submit`);
-//     const data = await login(username, password);
-//     if (data) {
-//       // Assume login is successful
-//       localStorage.setItem("isLoggedIn", "true");
-//       history.push("/dashboard");
-//     } else {
-//       console.error("Login failed");
-//     }
-//   };
-
-//   return (
-//     <div className="wrapper">
-//       <div className="logo">
-//         <img src="/images/drlogo.png" alt="DevRoute Logo" />
-//       </div>
-//       <div className="text-center mt-4 name">Route.Dev</div>
-//       <form className="p-3 mt-3" onSubmit={handleSubmit}>
-//         <div className="form-field d-flex align-items-center">
-//           <span className="far fa-user"></span>
-//           <input
-//             type="text"
-//             name="userName"
-//             id="userName"
-//             placeholder="Username"
-//             value={username}
-//             onChange={(e) => changeHandler(e, setUsername)}
-//           />
-//         </div>
-//         <div className="form-field d-flex align-items-center">
-//           <span className="fas fa-key"></span>
-//           <input
-//             type="password"
-//             name="password"
-//             id="pwd"
-//             placeholder="Password"
-//             value={password}
-//             onChange={(e) => changeHandler(e, setPassword)}
-//           />
-//         </div>
-//         <button className="btn mt-3" type="submit">
-//           Login
-//         </button>
-//       </form>
-//       <div className="text-center fs-6">
-//         <a href="#">Forget password?</a> or <a href="#">Sign up</a>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default withRouter(Login);
