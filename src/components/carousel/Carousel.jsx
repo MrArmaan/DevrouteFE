@@ -102,8 +102,8 @@ const Carousel = () => {
   };
 
   const onMouseMove = (event) => {
-    mouseX = -(-(window.innerWidth * 0.5) + event.pageX) * 0.0025;
-    mouseY = -(-(window.innerHeight * 0.5) + event.pageY) * 0.01;
+    mouseX = -(-(window.innerWidth * 0.5) + event.pageX) * 0.0004;
+    mouseY = -(-(window.innerHeight * 0.5) + event.pageY) * 0.005;
     mouseZ =
       -radius - (Math.abs(-(window.innerHeight * 0.5) + event.pageY) - 200);
   };
@@ -136,7 +136,7 @@ const Carousel = () => {
               id={`item${i + 1}`}
               className="carouselItem trans3d"
             >
-              <div className="carouselItemInner trans3d">{i + 1}</div>
+              <div className="carouselItemInner trans3d"></div>
             </figure>
           ))}
         </section>
