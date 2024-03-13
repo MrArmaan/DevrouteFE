@@ -93,3 +93,63 @@ body {
   max-width: 100%;
   margin-top: 2rem;
 }
+
+.job-details-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+}
+
+.job-details-popup-content {
+  max-width: 400px;
+  margin: auto;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.job-details-popup .image-container {
+  max-width: 100%;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.job-details-popup .job-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.job-image {
+  max-width: 100%;
+  max-height: 200px;
+  display: block;
+  margin: auto;
+}
+
+.job-details-popup-content .apply-button {
+  box-shadow: none;
+  width: 100%;
+  height: 40px;
+  background-color: #03a9f4;
+  color: #fff;
+  border-radius: 25px;
+  box-shadow: 3px 3px 3px #b1b1b1, -3px -3px 3px #fff;
+  letter-spacing: 1.3px;
+  margin-top: 20px;
+}
+
+.job-details-popup-content .apply-button:hover {
+  background-color: #039be5;
+}

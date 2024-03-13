@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect, createRef } from "react";
 import gsap from "gsap";
 import { useNavigate } from "react-router-dom";
 
-const Navmenu = ({ items }) => {
+const Navmenu = ({ items, user }) => {
   const navigate = useNavigate();
   const $root = useRef();
   const $indicator1 = useRef();
@@ -61,6 +61,12 @@ const Navmenu = ({ items }) => {
       ))}
       <div ref={$indicator1} className="indicator" />
       <div ref={$indicator2} className="indicator" />
+      {user && (
+        <div className="user-profile">
+          <span>{user.username}</span>
+          {/* You can add the profile icon here */}
+        </div>
+      )}
     </div>
   );
 };
