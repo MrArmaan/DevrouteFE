@@ -11,27 +11,27 @@ import Userdash from "./components/UserDashboard/Userdash";
 const items = [
   {
     name: "Home",
-    color: "#f44336",
+    color: "#e5e5e5",
     path: "/",
   },
   {
     name: "Jobs",
-    color: "#e91e63",
+    color: "#e5e5e5",
     path: "/jobs",
   },
   {
     name: "Log In",
-    color: "#9c27b0",
+    color: "#e5e5e5",
     path: "/login",
   },
   {
     name: "Sign Up",
-    color: "#673ab7",
+    color: "#e5e5e5",
     path: "/signup",
   },
   {
     name: "User",
-    color: "#3f51b5",
+    color: "#e5e5e5",
     path: "/userdashboard",
   },
 ];
@@ -45,7 +45,7 @@ const App = () => {
         <header>
           <div className="header-left">
             <div className="logo-container">
-              <img className="logo" src="/images/drlogo.png" alt="" />
+              <img className="logo" src="/images/newlogo.png" alt="" />
             </div>
             <div className="slogan"></div>
           </div>

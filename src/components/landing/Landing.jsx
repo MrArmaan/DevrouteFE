@@ -28,26 +28,38 @@ const Landing = () => {
           />
           <button className="search-button">Search</button>
         </div>
-        <div>
+        <div className="under-body">
           <section>
-            <div class="section">
-              <div class="box1">
-                <h3>Looking to Employ?</h3>
-                <p>
-                  Uncover exceptional junior talent and sculpt the destiny of
-                  your team with Dev.Route.
-                </p>
+            <div className="section">
+              <div className="box1">
+                <img src="/images/manbkgrd.png" alt="Looking to Employ?" />
+                <div className="text-overlay1">
+                  <h3>Looking to Employ?</h3>
+                  <p>
+                    Uncover exceptional junior talent and sculpt the destiny of
+                    your team with Dev.Route.
+                  </p>
+                  <button>Register Now</button>
+                </div>
               </div>
-              <div class="box2">
-                <h3>Looking for Employment?</h3>
-                <p>
-                  Display your talents and propel your technology career forward
-                  with Dev.Route. Your forthcoming opportunity is on the
-                  horizon!
-                </p>
+              <div className="box2">
+                <img
+                  src="/images/manwomanbkgrd.png"
+                  alt="Looking for Employment?"
+                />
+                <div className="text-overlay1">
+                  <h3>Looking for Employment?</h3>
+                  <p className="right-text">
+                    Display your talents and propel your technology career
+                    forward with Dev.Route. Your forthcoming opportunity is on
+                    the horizon!
+                  </p>
+                  <button>Register Now</button>
+                </div>
               </div>
             </div>
           </section>
+
           <section class="trending">
             <h2>Trending Jobs</h2>
             <div class="job-container">
@@ -58,6 +70,44 @@ const Landing = () => {
               <div class="job-box">
                 <h3>Job Title 2</h3>
                 <p>Description of Job 2</p>
+              </div>
+              <div class="job-box">
+                <h3>Job Title 3</h3>
+                <p>Description of Job 2</p>
+              </div>
+              <div class="job-box">
+                <h3>Job Title 4</h3>
+                <p>Description of Job 2</p>
+              </div>
+            </div>
+          </section>
+          <section className="location">
+            <h2>Locations</h2>
+            <p>
+              Streamline your employment journey by discovering roles in the
+              UK's leading tech centers. Whether in London or Manchester,
+              customize your exploration to focus on renowned cities, ensuring
+              you secure a position that aligns perfectly with your expertise
+              and career goals within the vibrant tech sector.
+            </p>
+            <div className="location-group">
+              <div className="location-box1">
+                <img src="/images/manny.jpg" alt="Manchester" />
+                <div className="text-overlay">
+                  <h3>Manchester</h3>
+                </div>
+              </div>
+              <div className="location-box2">
+                <img src="/images/landan.jpg" alt="London" />
+                <div className="text-overlay">
+                  <h3>London</h3>
+                </div>
+              </div>
+              <div className="location-box3">
+                <img src="/images/glasgor.jpg" alt="Glasgow" />
+                <div className="text-overlay">
+                  <h3>Glasgow</h3>
+                </div>
               </div>
             </div>
           </section>
