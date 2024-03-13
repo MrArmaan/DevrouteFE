@@ -95,7 +95,7 @@ const JobPage = () => {
         location: location,
         salary: `£${salary}`,
         description: descriptions[title],
-        image: data[i].urls.regular, // Get regular sized image from Unsplash
+        image: data[i].urls.regular,
       });
     }
 
@@ -111,7 +111,6 @@ const JobPage = () => {
       alert("User is not logged in. Please log in to apply.");
       return;
     }
-    // Simulate applying for a job
     alert("Application submitted successfully!");
     setApplied(true);
   };

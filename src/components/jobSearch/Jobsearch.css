@@ -147,7 +147,7 @@ body {
   border-radius: 25px;
   box-shadow: 3px 3px 3px #b1b1b1, -3px -3px 3px #fff;
   letter-spacing: 1.3px;
-  margin-top: 20px; /* Add margin to center the button */
+  margin-top: 20px;
 }
 
 .job-details-popup-content .apply-button:hover {
