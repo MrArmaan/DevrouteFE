@@ -3,6 +3,19 @@ import { gsap, Expo, Quint } from "gsap";
 import "./Carousel.css";
 
 const Carousel = () => {
+  const jobTitles = [
+    "Software Engineer",
+    "Data Scientist",
+    "Web Developer",
+    "Product Manager",
+    "UX/UI Designer",
+    "Network Engineer",
+    "Cybersecurity Analyst",
+    "Digital Marketing Manager",
+    "Business Analyst",
+    "Quality Assurance Tester",
+  ];
+
   let container, carousel, item, radius, itemLength, rY, ticker, fps;
   let mouseX = 0;
   let mouseY = 0;
@@ -31,6 +44,32 @@ const Carousel = () => {
   const counter = Object.create(fps_counter);
   const contentContainerRef = useRef(null);
 
+  const companyNames = [
+    "Google",
+    "Amazon",
+    "Microsoft",
+    "Apple",
+    "Facebook",
+    "Tesla",
+    "Netflix",
+    "Airbnb",
+    "Uber",
+    "Salesforce",
+  ];
+
+  const locations = [
+    "London",
+    "Manchester",
+    "Birmingham",
+    "Edinburgh",
+    "Glasgow",
+    "Liverpool",
+    "Bristol",
+    "Leeds",
+    "Sheffield",
+    "Newcastle",
+  ];
+
   useEffect(() => {
     container = contentContainerRef.current;
     carousel = contentContainerRef.current.querySelector("#carouselContainer");
@@ -54,7 +93,7 @@ const Carousel = () => {
         transformOrigin: "50% 50% " + -radius + "px",
       });
 
-      animateIn($item, $block);
+      animateIn($item, $block, i);
     }
 
     document.addEventListener("mousedown", onMouseDown);
@@ -70,7 +109,18 @@ const Carousel = () => {
     };
   }, []);
 
-  const animateIn = ($item, $block) => {
+  const animateIn = ($item, $block, index) => {
+    const randomJob = jobTitles[Math.floor(Math.random() * jobTitles.length)];
+    const randomCompany =
+      companyNames[Math.floor(Math.random() * companyNames.length)];
+    const randomLocation =
+      locations[Math.floor(Math.random() * locations.length)];
+
+    $block.innerHTML = `
+      <h4>${randomJob} at ${randomCompany}</h4>
+      <h6>Location: ${randomLocation}</h6>
+    `;
+
     let $nrX = 360 * getRandomInt(2);
     let $nrY = 360 * getRandomInt(2);
 
