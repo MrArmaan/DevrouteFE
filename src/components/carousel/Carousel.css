@@ -24,26 +24,21 @@ a:hover {
 }
 
 #contentContainer {
-  position: absolute;
+  position: relative;
+  left: 50%;
+  top: 50%;
   transform: translate(-50%, -50%);
-  left: 43%;
-  top: 60%;
   width: 100%;
   height: auto;
   z-index: 1;
-
-  @media (max-width: 650px) {
-    top: 80%;
-  }
 }
 
 #carouselContainer {
   position: relative;
-  margin-left: -500px;
-  margin-top: -500px;
   left: 50%;
   top: 50%;
-  width: 100%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
   height: auto;
 }
 
@@ -69,7 +64,7 @@ a:hover {
   left: 50%;
   top: 50%;
   margin-left: -160px;
-  margin-top: 360px;
+  margin-top: -140px;
   text-align: center;
   padding-top: 50px;
 }
