@@ -3,11 +3,13 @@ import { gsap, Expo, Quint } from "gsap";
 import "./Carousel.css";
 
 const Carousel = () => {
-  let w, container, carousel, item, radius, itemLength, rY, ticker, fps;
+  let container, carousel, item, radius, itemLength, rY, ticker, fps;
   let mouseX = 0;
   let mouseY = 0;
   let mouseZ = 0;
   let addX = 0;
+  let previousMouseX = 0;
+  let isMouseDown = false;
 
   const fps_counter = {
     tick: function () {
@@ -30,7 +32,6 @@ const Carousel = () => {
   const contentContainerRef = useRef(null);
 
   useEffect(() => {
-    w = window;
     container = contentContainerRef.current;
     carousel = contentContainerRef.current.querySelector("#carouselContainer");
     item = contentContainerRef.current.querySelectorAll(".carouselItem");
@@ -56,11 +57,15 @@ const Carousel = () => {
       animateIn($item, $block);
     }
 
-    carousel.addEventListener("mousemove", onMouseMove, false);
+    document.addEventListener("mousedown", onMouseDown);
+    document.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseup", onMouseUp);
     ticker = setInterval(looper, 1000 / 60);
 
     return () => {
-      carousel.removeEventListener("mousemove", onMouseMove, false);
+      document.removeEventListener("mousedown", onMouseDown);
+      document.removeEventListener("mousemove", onMouseMove);
+      document.removeEventListener("mouseup", onMouseUp);
       clearInterval(ticker);
     };
   }, []);
@@ -102,21 +107,32 @@ const Carousel = () => {
     });
   };
 
+  const onMouseDown = (event) => {
+    isMouseDown = true;
+    previousMouseX = event.clientX;
+  };
+
   const onMouseMove = (event) => {
-    mouseX = -(-(window.innerWidth * 0.5) + event.pageX) * 0.0004;
-    mouseY = -(-(window.innerHeight * 0.5) + event.pageY) * 0.005;
-    mouseZ =
-      -radius - (Math.abs(-(window.innerHeight * 0.5) + event.pageY) - 200);
+    if (isMouseDown) {
+      mouseX = event.clientX;
+      addX += (mouseX - previousMouseX) * 0.1;
+      previousMouseX = mouseX;
+    }
+  };
+
+  const onMouseUp = () => {
+    isMouseDown = false;
   };
 
   const looper = () => {
-    addX += mouseX;
+    if (!isMouseDown) {
+      addX += 0.1;
+    }
+
     gsap.to(carousel, 1, {
       rotationY: addX,
-      rotationX: mouseY,
       ease: Quint.easeOut,
     });
-    gsap.set(carousel, { z: mouseZ });
 
     if (fps) {
       fps.innerText = "Framerate: " + (counter.tick() || "N/A") + "/60 FPS";
