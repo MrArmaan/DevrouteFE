@@ -68,20 +68,34 @@ const Landing = () => {
             <h2>Trending Jobs</h2>
             <div class="job-container">
               <div class="job-box">
-                <h3>Job Title 1</h3>
-                <p>Description of Job 1</p>
+                <h3>Software Engineer</h3>
+                <p>
+                  We are seeking a talented Software Engineer to join our
+                  dynamic team and contribute to the development of cutting-edge
+                  software solutions.
+                </p>
               </div>
               <div class="job-box">
-                <h3>Job Title 2</h3>
-                <p>Description of Job 2</p>
+                <h3>Cybersecurity Analyst</h3>
+                <p>
+                  Join our cybersecurity team and help protect our organization
+                  from cyber threats by implementing robust security measures.
+                </p>
               </div>
               <div class="job-box">
-                <h3>Job Title 3</h3>
-                <p>Description of Job 2</p>
+                <h3>Web Developer</h3>
+                <p>
+                  We're looking for a skilled Web Developer to build responsive
+                  and user-friendly web applications using modern technologies.
+                </p>
               </div>
               <div class="job-box">
-                <h3>Job Title 4</h3>
-                <p>Description of Job 2</p>
+                <h3>Network Engineer</h3>
+                <p>
+                  We're hiring a Network Engineer to design, implement, and
+                  maintain our network infrastructure for optimal performance
+                  and reliability.
+                </p>
               </div>
             </div>
           </div>
