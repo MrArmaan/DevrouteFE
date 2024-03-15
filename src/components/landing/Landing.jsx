@@ -1,8 +1,35 @@
 import { Link } from "react-router-dom";
 import "./Landing.css";
 import Carousel from "../carousel/Carousel";
+import { FaArrowUp } from "react-icons/fa";
+import { useState, useEffect } from "react";
 
 const Landing = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  const [showButton, setShowButton] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.pageYOffset > 100) {
+        setShowButton(true);
+      } else {
+        setShowButton(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div className="landing-container">
       <div className="topbody-group">
@@ -128,11 +155,22 @@ const Landing = () => {
                     <h3>Glasgow</h3>
                   </div>
                 </div>
+                <div>
+                  <footer className="footer">
+                    <h5>DEV.ROUTE -- Brought to you by Black Dev Ops</h5>
+                    <h5> 2024 Website </h5>
+                  </footer>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      {showButton && (
+        <button className="scroll-to-top-button" onClick={scrollToTop}>
+          <FaArrowUp />
+        </button>
+      )}
     </div>
   );
 };
